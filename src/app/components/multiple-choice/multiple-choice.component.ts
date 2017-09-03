@@ -13,12 +13,12 @@ import { SpinnerService } from '../../services/spinner.service';
 export class MultipleChoiceComponent implements OnInit {
     public studyRef: any;
     public question: Question;
-    private animate: string;
-    private isCorrect: boolean;
-    private answer: string;
-    private NOUN: string = WordType[WordType.noun];
-    private ADJECTIVE: string = WordType[WordType.adjective];
-    private ANIMATE: string = Animate[Animate.animate];
+    public NOUN: string = WordType[WordType.noun];
+    public ADJECTIVE: string = WordType[WordType.adjective];
+    public ANIMATE: string = Animate[Animate.animate];
+    public animate: string;
+    public isCorrect: boolean;
+    public answer: string;
 
     constructor(
         private localStorage: LocalStorageService,

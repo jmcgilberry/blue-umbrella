@@ -1,13 +1,13 @@
 export class ModelMap {
-    public nominative: string = 'Nom';
-    public accusative: string = 'Acc';
-    public dative: string = 'Dat';
-    public genitive: string = 'Gen';
-    public instrumental: string = 'Inst';
-    public prepositional: string = 'Prep';
-    public masculine: string = 'm';
-    public feminine: string = 'f';
-    public neuter: string = 'n';
-    public singular: string = 's';
-    public plural: string = 'p';
+    public nominative = 'Nom';
+    public accusative = 'Acc';
+    public dative = 'Dat';
+    public genitive = 'Gen';
+    public instrumental = 'Inst';
+    public prepositional = 'Prep';
+    public masculine = 'm';
+    public feminine = 'f';
+    public neuter = 'n';
+    public singular = 's';
+    public plural = 'p';
 }
