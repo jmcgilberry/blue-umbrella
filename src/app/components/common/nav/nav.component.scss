@@ -1,0 +1,20 @@
+@import '../../../../variables';
+@import '../../../../../node_modules/bootstrap/scss/bootstrap';
+
+.navbar { padding: 0; }
+.navbar > .container > ul { flex-direction: row; }
+.navbar > .container > ul > li:hover, .navbar > .container > ul > li > a { color: $gray-200; }
+.navbar > .container > ul > li:hover, .navbar > .container > ul > li > a:hover { background: $gray-700; color: $white; }
+.navbar > .container > ul > li:hover, .navbar > .container > ul > li:first-of-type > a:hover { background: $gray-900; color: $white; }
+
+.navbar > .container > ul > li > a, .navbar > .container > ul > li > a:hover { padding: 16px 11px; }
+.navbar > .container > ul > li:first-of-type > a, .navbar > .container > ul > li:first-of-type > a > img { padding: 8px 11px 8px 0; }
+
+@media (min-width:0) {
+    .navbar > .container > ul { padding: 0 15px; }
+}
+@media (min-width:768px) {
+    .navbar > .container > ul { padding: 0; }
+}
+@media (min-width:992px) { }
+@media (min-width:1200px) { }

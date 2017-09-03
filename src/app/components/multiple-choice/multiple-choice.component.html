@@ -1,0 +1,89 @@
+<app-panel>
+    <h1 class="d-none d-sm-block">Multiple Choice</h1>
+    <div *ngIf="question">
+        <div class="row gutter-top">
+            <div class="col-12 col-md-10 col-lg-8">
+                <h3 class="d-none d-sm-block">
+                    {{question.wordQuantity | capitalizeFirst}}
+                    <span *ngIf="this.question.wordType === ADJECTIVE">{{question.wordGender | capitalizeFirst}}</span>
+                    {{question.wordCase | capitalizeFirst}}
+                </h3>
+                <h3 class="d-sm-none">
+                    {{question.wordQuantity | abbreviate}}
+                    <span *ngIf="this.question.wordType === ADJECTIVE">{{question.wordGender | abbreviate}}</span>
+                    {{question.wordCase | abbreviate}}
+                </h3>
+                <h3>
+                    <div class="d-none d-sm-block">
+                        {{question.word.word | stress}}
+                        <small class="text-muted" *ngIf="this.question.wordType !== ADJECTIVE">
+                            (n. {{this.question.wordGender |  abbreviate}} <span *ngIf="animate === ANIMATE">{{animate | abbreviate}}</span> &mdash; {{this.question.word.en}})
+                        </small>
+                        <small class="text-muted" *ngIf="this.question.wordType === ADJECTIVE">
+                            (adj. &mdash; {{this.question.word.en}})
+                        </small>
+                        
+                        <a target="_blank" href="https://translate.yandex.com/?lang=ru-en&text={{question.word.word | noStress}}"><img src="./assets/images/yandex.png"></a>
+                        <a target="_blank" href="https://translate.google.com/#auto/en/{{question.word.word | noStress}}"><img src="./assets/images/google.png"></a>
+                        <a target="_blank" href="https://en.openrussian.org/ru/{{question.word.word | noStress}}"><img src="./assets/images/openrussian.png"></a>
+                    </div>
+                    <div class="d-sm-none">
+                        {{question.word.word | stress}}
+                        <a target="_blank" href="https://translate.yandex.com/?lang=ru-en&text={{question.word.word | noStress}}"><img src="./assets/images/yandex.png"></a>
+                        <a target="_blank" href="https://translate.google.com/#auto/en/{{question.word.word | noStress}}"><img src="./assets/images/google.png"></a>
+                        <a target="_blank" href="https://en.openrussian.org/ru/{{question.word.word | noStress}}"><img src="./assets/images/openrussian.png"></a>                
+                        <br />
+                        <small class="text-muted" *ngIf="this.question.wordType !== ADJECTIVE">
+                            (n. {{this.question.wordGender |  abbreviate}} <span *ngIf="animate === ANIMATE">{{animate | abbreviate}}</span> {{this.question.word.en}})
+                        </small>
+                        <small class="text-muted" *ngIf="this.question.wordType === ADJECTIVE">
+                            (adj. {{this.question.word.en}})
+                        </small>
+                    </div>
+                </h3>
+            </div>
+        </div>
+        <div class="row gutter-top">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [class.progress-bar-animated]="studyRef.progressService.progress < 100" [ngStyle]="{'width': studyRef.progressService.progressPercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row gutter-top">
+            <div class="col-6 col-md-5 col-lg-4">
+                <button type="button" class="btn btn-primary btn-lg btn-block" (click)="check(this.question.allAnswers[0])" [class.btn-success]="isCorrect != null && this.question.allAnswers[0] === this.question.correctAnswer" [class.btn-danger]="isCorrect != null && !isCorrect && this.question.allAnswers[0] === answer">{{this.question.allAnswers[0] | stress}}</button>
+            </div>
+            <div class="col-6 col-md-5 col-lg-4">
+                <button type="button" class="btn btn-primary btn-lg btn-block" (click)="check(this.question.allAnswers[1])" [class.btn-success]="isCorrect != null && this.question.allAnswers[1] === this.question.correctAnswer" [class.btn-danger]="isCorrect != null && !isCorrect && this.question.allAnswers[1] === answer">{{this.question.allAnswers[1] | stress}}</button>
+            </div>
+        </div>
+        <div class="row gutter-top">
+            <div class="col-6 col-md-5 col-lg-4">
+                <button type="button" class="btn btn-primary btn-lg btn-block" (click)="check(this.question.allAnswers[2])" [class.btn-success]="isCorrect != null && this.question.allAnswers[2] === this.question.correctAnswer" [class.btn-danger]="isCorrect != null && !isCorrect && this.question.allAnswers[2] === answer">{{this.question.allAnswers[2] | stress}}</button>
+            </div>
+            <div class="col-6 col-md-5 col-lg-4">
+                <button type="button" class="btn btn-primary btn-lg btn-block" (click)="check(this.question.allAnswers[3])" [class.btn-success]="isCorrect != null && this.question.allAnswers[3] === this.question.correctAnswer" [class.btn-danger]="isCorrect != null && !isCorrect && this.question.allAnswers[3] === answer">{{this.question.allAnswers[3] | stress}}</button>
+            </div>
+        </div>
+        <div class="row gutter-top">
+            <div class="col-12 col-md-10 col-lg-8">
+                <hr />
+            </div>
+        </div>
+        <div class="row gutter-top">
+            <div class="col-6 col-md-5 col-lg-4">
+                <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="studyRef.studyOptionsView()">Options</button>
+            </div>
+            <div class="col-6 col-md-5 col-lg-4 text-center">
+                <h3 *ngIf="question && studyRef.progressService.progress === 100" class="d-none d-sm-block">
+                    Study Complete! <a href="javascript:void(0)" (click)="studyRef.restartStudyView()"></a>
+                </h3>
+                <h3 *ngIf="question && studyRef.progressService.progress === 100" class="d-sm-none">
+                    Done! <a href="javascript:void(0)" (click)="studyRef.restartStudyView()"></a>
+                </h3>
+                <button *ngIf="question && studyRef.progressService.progress < 100" class="btn btn-secondary btn-lg btn-block" (click)="studyRef.studyView()" [class.btn-warning]="isCorrect != null" [disabled]="isCorrect == null">Next</button>
+            </div>
+        </div>
+    </div>
+</app-panel>

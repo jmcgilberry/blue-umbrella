@@ -1,0 +1,8 @@
+@media (min-width:0) {
+    :host ::ng-deep h1 { padding-top: 15px; }
+}
+@media (min-width:768px) {
+    :host ::ng-deep h1 { padding-top: 90px; }
+}
+
+:host ::ng-deep a { margin-top: 40px; }

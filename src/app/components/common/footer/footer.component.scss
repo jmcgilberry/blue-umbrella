@@ -1,0 +1,10 @@
+@import '../../../../variables';
+@import '../../../../../node_modules/bootstrap/scss/bootstrap';
+
+.footer { margin-bottom: 25px; }
+div { color: $white; }
+a { color: $gray-100; }
+a:hover, a:active { color: $white; }
+.container > .row > .col-md-6:first-child { padding-top: 25px; }
+.container > .row > .col-md-6:last-child { padding-top: 60px; }
+.container > .row > .col-md-6:last-child > img { position: absolute; top: -80px; right: -20px; }

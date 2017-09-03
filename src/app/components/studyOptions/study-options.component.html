@@ -1,0 +1,75 @@
+<app-panel>
+    <h1>Choose your options</h1>
+    <div class="well">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="no-gutter-top">Types</h3>
+                <!-- <button class="btn btn-lg btn-block" [class.btn-secondary]="!allChecked('wordTypes')" [class.btn-warning]="allChecked('wordTypes')" (click)="setAll('wordTypes')">Both</button> -->
+                <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.wordTypes.noun" [class.btn-primary]="studyRef.studyOptions.wordTypes.noun">
+                    <input type="checkbox" [(ngModel)]="studyRef.studyOptions.wordTypes.noun"> Nouns
+                </label>
+                <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.wordTypes.adjective" [class.btn-primary]="studyRef.studyOptions.wordTypes.adjective">
+                    <input type="checkbox" [(ngModel)]="studyRef.studyOptions.wordTypes.adjective"> Adjectives
+                </label>
+                <br class="d-md-none" />
+                <h3>Quantity</h3>
+                <!-- <button class="btn btn-lg btn-block" [class.btn-secondary]="!allChecked('wordQuantities')" [class.btn-warning]="allChecked('wordQuantities')" (click)="setAll('wordQuantities')">Both</button> -->
+                <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.wordQuantities.singular" [class.btn-primary]="studyRef.studyOptions.wordQuantities.singular">
+                    <input type="checkbox" [(ngModel)]="studyRef.studyOptions.wordQuantities.singular"> Singular
+                </label>
+                <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.wordQuantities.plural" [class.btn-primary]="studyRef.studyOptions.wordQuantities.plural">
+                    <input type="checkbox" [(ngModel)]="studyRef.studyOptions.wordQuantities.plural"> Plural
+                </label>
+                <br class="d-md-none" />
+                <h3>Gender</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.genders.masculine" [class.btn-primary]="studyRef.studyOptions.genders.masculine">
+                            <input type="checkbox" [(ngModel)]="studyRef.studyOptions.genders.masculine"> Masculine
+                        </label>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.genders.feminine" [class.btn-primary]="studyRef.studyOptions.genders.feminine">
+                            <input type="checkbox" [(ngModel)]="studyRef.studyOptions.genders.feminine"> Feminine
+                        </label>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.genders.neuter" [class.btn-primary]="studyRef.studyOptions.genders.neuter">
+                            <input type="checkbox" [(ngModel)]="studyRef.studyOptions.genders.neuter"> Neuter
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <br class="d-md-none" />
+                <h3 class="no-gutter-top">Cases</h3>
+                <button class="btn btn-lg btn-block" [class.btn-secondary]="!allChecked('wordCases')" [class.btn-warning]="allChecked('wordCases')" (click)="setAll('wordCases')">All</button>
+                <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.wordCases.nominative" [class.btn-primary]="studyRef.studyOptions.wordCases.nominative">
+                    <input type="checkbox" [(ngModel)]="studyRef.studyOptions.wordCases.nominative"> Nominative
+                </label>
+                <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.wordCases.accusative" [class.btn-primary]="studyRef.studyOptions.wordCases.accusative">
+                    <input type="checkbox" [(ngModel)]="studyRef.studyOptions.wordCases.accusative"> Accusative
+                </label>
+                <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.wordCases.dative" [class.btn-primary]="studyRef.studyOptions.wordCases.dative">
+                    <input type="checkbox" [(ngModel)]="studyRef.studyOptions.wordCases.dative"> Dative
+                </label>
+                <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.wordCases.genitive" [class.btn-primary]="studyRef.studyOptions.wordCases.genitive">
+                    <input type="checkbox" [(ngModel)]="studyRef.studyOptions.wordCases.genitive"> Genitive
+                </label>
+                <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.wordCases.instrumental" [class.btn-primary]="studyRef.studyOptions.wordCases.instrumental">
+                    <input type="checkbox" [(ngModel)]="studyRef.studyOptions.wordCases.instrumental"> Instrumental
+                </label>
+                <label class="btn btn-lg btn-block" [class.btn-secondary]="!studyRef.studyOptions.wordCases.prepositional" [class.btn-primary]="studyRef.studyOptions.wordCases.prepositional">
+                    <input type="checkbox" [(ngModel)]="studyRef.studyOptions.wordCases.prepositional"> Prepositional
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-end gutter-top">
+        <div class="col-md-3">
+            <br class="d-md-none" />
+            <button type="button" class="btn btn-warning btn-lg btn-block" [disabled]="!isValidForm()" (click)="studyRef.studyView()">Study</button>
+        </div>
+    </div>
+</app-panel>

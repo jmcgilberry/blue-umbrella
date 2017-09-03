@@ -1,0 +1,23 @@
+@import 'variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+body { padding-top: 56px; background: $gray-700; }
+
+.gutter-left { margin-left: 15px; }
+.gutter-right { margin-right: 15px; }
+.gutter-top { margin-top: 15px; }
+.gutter-bottom { margin-bottom: 15px; }
+.no-gutter-left { margin-left: 0px; }
+.no-gutter-right { margin-right: 0px; }
+.no-gutter-top { margin-top: 0px; }
+.no-gutter-bottom { margin-bottom: 0px; }
+
+.progress-bar {
+    -webkit-transition: width 1.5s ease;
+    transition: width 1.5s ease;
+}
+
+@media (min-width:0) { }
+@media (min-width:768px) { }
+@media (min-width:992px) { }
+@media (min-width:1200px) { }
